@@ -4,32 +4,38 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp15
+namespace ConsoleApp13
 {
     internal class Program
     {
         static void Main(string[] args)
+        
         {
-            Console.WriteLine("enter 1n");
-             int start = int.Parse(Console.ReadLine());
-            Console.WriteLine("enter 2n");
+            Console.WriteLine("enter start number");
+            int start = int.Parse(Console.ReadLine());
+            Console.WriteLine("enter end number");
             int end = int.Parse(Console.ReadLine());
             int sum = 0;
-            for (int x = start; x <= end; x++)
+            for (int i = start; i <= end; i++)
             {
-                sum = 0;
-
-                for (int i = 1; i <= x / 2; i++)
+                for (int x = 1; x <= i; x++)
                 {
-                    if (x % i == 0)
-                        sum += i;
-                       
+                    if (i % x == 0)
+                        sum++;
                 }
-                if (sum == x)
-                    Console.WriteLine(x + " is a perfect number");
-                
+                if (sum == 2)
+                {
+                    Console.WriteLine(i);
+                    sum = 0;
+                }
+                else
+                {
+                    sum = 0;
+                    continue;
+
+                }
+                Console.ReadKey();
             }
-            Console.ReadKey();
         }
     }
 }
